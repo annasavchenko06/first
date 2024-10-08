@@ -1,7 +1,6 @@
 import React, { createElement } from 'react'
 
-import { type AppRoute, routes } from '~/app/route'
-import { getRole } from '~/entities/user'
+import { routes } from '~/app/route'
 import Button from '~/shared/button'
 import Card from '~/shared/card'
 import Container from '~/shared/container'
@@ -20,12 +19,7 @@ const displayName = 'page-Main'
  * page-Main
  */
 export default function Component(): JSX.Element {
-  const role = getRole() || ''
-
-  const navigatables = Object.entries(routes).filter(([, route]) => {
-    if (!(route as AppRoute).payload.rolesAllowed) return route.payload.navigatable
-    return (route as AppRoute).payload.rolesAllowed?.includes(role) && route.payload.navigatable
-  })
+  const navigatables = Object.entries(routes).filter(([, route]) => route.payload.navigatable)
 
   return (
     <main className={displayName}>
@@ -48,12 +42,10 @@ export default function Component(): JSX.Element {
             {navigatables.map(([key, route]) => {
               return (
                 <Card key={key} asChild style={{ width: '15rem', height: '5rem' }}>
-                  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                   <Link to={(route.getUrl as any)()}>
                     <Flex gap='4'>
                       <Flex>
                         <Button variant='soft' square={true}>
-                          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                           {createElement((route as any).payload.renderIcon)}
                         </Button>
                       </Flex>

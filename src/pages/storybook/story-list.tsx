@@ -1,7 +1,3 @@
-import normalizationConfigForm from '~/entities/normalization-config/ui/form/story'
-import operationalTableForm from '~/entities/operational-table/ui/form/story'
-import storeConfigForm from '~/entities/store-config/ui/form/story'
-import targetTableForm from '~/entities/target-table/ui/form/story'
 import uiButton from '~/shared/button/story'
 import uiCard from '~/shared/card/story'
 import uiCodeEditor from '~/shared/code-editor/story'
@@ -30,12 +26,8 @@ import uiTreeVNested from '~/shared/tree/variants/nested/story'
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const storyList: Story<any>[] = [
   explorerViewer,
-  normalizationConfigForm,
-  operationalTableForm,
   databasTableColumnForm,
   databasTableDatabaseTableForm,
-  storeConfigForm,
-  targetTableForm,
   uiButton,
   uiTreeVNested,
   uiCard,
