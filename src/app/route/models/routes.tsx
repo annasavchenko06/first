@@ -6,6 +6,7 @@ import Logo from '~/shared/logo-icon'
 import Nav from '~/shared/nav'
 import { isDev } from '~/utils/core-client/is-dev'
 
+import Pokemon_getMany from '../../../pages/entities/pokemon/pages/get-many'
 import Main from '../../../pages/main'
 import { type AppRoute } from './app-route'
 
@@ -28,6 +29,20 @@ export const routes = {
     },
   },
 
+  Pokemon_getMany: {
+    getName: (): string => 'Pokemon',
+    getPath: () => '/pokemons',
+    getUrl(): string {
+      return this.getPath()
+    },
+    render: Pokemon_getMany,
+    payload: {
+      renderHeader: Header,
+      renderNav: Nav,
+      renderIcon: Logo,
+      navigatable: true,
+    },
+  },
   // Misc
 
   storybook: {

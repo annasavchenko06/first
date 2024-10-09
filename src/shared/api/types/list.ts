@@ -1,4 +1,6 @@
 export interface List<T> {
-  items: T[]
-  total: number
+  count: number
+  next: string | null
+  previous: string | null
+  results: Array<T>
 }
