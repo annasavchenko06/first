@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+
+import { routes } from '~/app/route'
 
 import * as api from '../api'
 
@@ -14,7 +17,11 @@ export default function Component() {
   return (
     <ul>
       {pokemonApiResponse?.results?.map((item) => {
-        return <li key={item.name}>{item.name}</li>
+        return (
+          <li key={item.name}>
+            <Link to={routes.Pokemon_getByName.getUrl(item.name)}>{item.name}</Link>
+          </li>
+        )
       })}
     </ul>
   )
