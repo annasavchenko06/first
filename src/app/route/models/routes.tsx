@@ -6,6 +6,8 @@ import Logo from '~/shared/logo-icon'
 import Nav from '~/shared/nav'
 import { isDev } from '~/utils/core-client/is-dev'
 
+import Habitat_getByName from '../../../entities/habitat/pages/get-by-name'
+import Habitat_getMany from '../../../entities/habitat/pages/get-many'
 import Pokemon_getByName from '../../../entities/pokemon/pages/get-by-name'
 import Pokemon_getMany from '../../../entities/pokemon/pages/get-many'
 import Main from '../../../pages/main'
@@ -60,6 +62,34 @@ export const routes = {
     },
   },
 
+  Habitat_getMany: {
+    getName: (): string => 'Habitat',
+    getPath: () => '/habitat',
+    getUrl(): string {
+      return this.getPath()
+    },
+    render: Habitat_getMany,
+    payload: {
+      renderHeader: Header,
+      renderNav: Nav,
+      renderIcon: Logo,
+      navigatable: true,
+    },
+  },
+  Habitat_getByName: {
+    getName: (): string => 'Habitat',
+    getPath: () => '/habitat/:name',
+    getUrl(name: string): string {
+      return `/habitat/${name}`
+    },
+    render: Habitat_getByName,
+    payload: {
+      renderHeader: Header,
+      renderNav: Nav,
+      renderIcon: Logo,
+      navigatable: false,
+    },
+  },
   // Misc
 
   storybook: {
