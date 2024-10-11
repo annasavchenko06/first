@@ -1,1 +1,1 @@
-export { request, type Response } from './request'
+export { request, type ResponseData as Response } from './request'

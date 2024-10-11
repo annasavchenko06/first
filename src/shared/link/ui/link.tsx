@@ -1,4 +1,6 @@
-import { Link, LinkProps } from 'react-router-dom'
+import { Link } from '@radix-ui/themes'
+
+import { type LinkProps, Link as RouteLink } from 'react-router-dom'
 
 import { c } from '~/utils/core'
 
@@ -12,7 +14,11 @@ export const NAME = 'ui-Link'
 export default function Component(props: Props): JSX.Element {
   const { className, ...linkProps } = props
 
-  return <Link {...linkProps} className={c(className, NAME)} />
+  return (
+    <Link asChild>
+      <RouteLink {...linkProps} className={c(className, NAME)} />
+    </Link>
+  )
 }
 
 Component.displayName = NAME
