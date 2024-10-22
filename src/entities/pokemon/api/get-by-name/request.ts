@@ -10,7 +10,7 @@ export type Response = {
 }
 
 export async function request(name: string): Promise<Response> {
-  const handshake = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+  const handshake = await fetch(`/api/v2/pokemon/${name}`)
   const data = await handshake.json()
 
   return data
